@@ -1,0 +1,19 @@
+# Build and Derived Data
+/build/
+/DerivedData/
+
+# Pods
+/Pods/
+
+# Xcode files
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+
+# Configuration files
+.env
+.env.*
+
+# Temporary files
+*~
+.DS_Store
