@@ -2,9 +2,9 @@
 This repository hosts a small UIKit-based application following the MVVM (Model-View-ViewModel) architectural pattern. The primary purpose of this project is to serve as an educational resource for the SwiftBook community.
 
 <p float="left">
-<img src="https://github.com/Oldmakerrr/SpaceNews/assets/92182846/a6b6be17-f4c8-4323-8730-290d6ab58df8" width=50% height=50%>
+<img src="https://github.com/Oldmakerrr/SpaceNews/assets/92182846/a6b6be17-f4c8-4323-8730-290d6ab58df8" width=30% height=30%>
 
-<img src="https://github.com/Oldmakerrr/SpaceNews/assets/92182846/63ce0ff5-9a00-4492-af4d-a031d68abceb" width=50% height=50%>
+<img src="https://github.com/Oldmakerrr/SpaceNews/assets/92182846/63ce0ff5-9a00-4492-af4d-a031d68abceb" width=30% height=30%>
 </p>
 
 # Key Features:
