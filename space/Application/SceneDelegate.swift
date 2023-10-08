@@ -10,17 +10,19 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let screenFactory = ScreenFactory()
+    lazy var coordinator = Coordinator(screenFactory: screenFactory)
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-
-        let mapper = ArticelMapper()
-        let viewModel = ArticlesViewModel(mapper: mapper)
-        let articlesController = ArticlesController(viewModel: viewModel)
+        
+        let articlesController = screenFactory.articleController(coordinatorDelegate: coordinator)
 
         let navigationController = UINavigationController(rootViewController: articlesController)
+        coordinator.router = navigationController
+
         window.rootViewController = navigationController
         self.window = window
         window.makeKeyAndVisible()

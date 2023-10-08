@@ -9,12 +9,18 @@ import UIKit
 import SnapKit
 import SDWebImage
 
+protocol ArticleCellDelegate: AnyObject {
+    func didImageTap(_ cell: ArticleCell)
+}
+
 fileprivate struct Constant {
     static let offset: CGFloat = 10
     static let imageViewCornerRadius: CGFloat = 8
 }
 
 final class ArticleCell: UICollectionViewCell {
+
+    weak var delegate: ArticleCellDelegate?
 
     struct ViewModel {
         let title: String
@@ -55,6 +61,7 @@ final class ArticleCell: UICollectionViewCell {
         super.init(frame: frame)
         setupUI()
         setupConstraints()
+        addGesture()
         backgroundColor = .white
     }
 
@@ -67,6 +74,18 @@ final class ArticleCell: UICollectionViewCell {
         iconView.sd_setImage(with: viewModel.iconURL)
         dateLabel.text = viewModel.date
         siteLabel.text = viewModel.site
+    }
+
+    func addGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTaphandle))
+        tapGesture.numberOfTapsRequired = 1
+        iconView.addGestureRecognizer(tapGesture)
+        iconView.isUserInteractionEnabled = true
+    }
+
+    @objc
+    private func imageTaphandle() {
+        delegate?.didImageTap(self)
     }
 
     private func setupUI() {

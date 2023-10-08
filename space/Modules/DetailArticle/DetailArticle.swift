@@ -21,7 +21,7 @@ fileprivate struct Constant {
 final class DetailArticle: UIViewController {
     // MARK: - Private Properties
 
-    private let article: ArticleDTO
+    private let viewModel: DetailArticleViewModelProtocol
 
     private var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -63,8 +63,8 @@ final class DetailArticle: UIViewController {
 
     // MARK: - Init
 
-    init(article: ArticleDTO) {
-        self.article = article
+    init(viewModel: DetailArticleViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -86,18 +86,18 @@ final class DetailArticle: UIViewController {
 
     @objc
     private func moreInfoButtonHandler() {
-        let viewController = WebViewController(url: URL(string: article.url))
-        navigationController?.pushViewController(viewController, animated: true)
+//        let viewController = WebViewController(url: URL(string: article.url))
+//        navigationController?.pushViewController(viewController, animated: true)
     }
 
     // MARK: - Private Methods
 
     private func configureUI() {
         view.backgroundColor = .systemGray6
-        titleLabel.text = article.title
-        infoLabel.text = dateMapping(article.publishedAt) + " " + article.newsSite
-        imageView.sd_setImage(with: URL(string: article.imageUrl))
-        summaryLabel.text = article.summary
+        titleLabel.text = viewModel.title
+        infoLabel.text = viewModel.info
+        imageView.sd_setImage(with: viewModel.imageUrl)
+        summaryLabel.text = viewModel.summary
     }
 
     private func setupUI() {
@@ -146,24 +146,5 @@ final class DetailArticle: UIViewController {
         moreInfoButton.addTarget(self, action: #selector(moreInfoButtonHandler), for: .touchUpInside)
     }
 
-    private func dateMapping(_ dateString: String) -> String {
-        let inputDateFormatterWithoutMilliseconds = DateFormatter()
-        inputDateFormatterWithoutMilliseconds.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-
-        let inputDateFormatterWithMilliseconds = DateFormatter()
-        inputDateFormatterWithMilliseconds.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ"
-
-        let outputDateFormatter = DateFormatter()
-        outputDateFormatter.dateFormat = "yyyy MM dd"
-        outputDateFormatter.locale = .current
-        outputDateFormatter.dateStyle = .long
-
-        if let date = inputDateFormatterWithoutMilliseconds.date(from: dateString) {
-            return outputDateFormatter.string(from: date)
-        }
-        if let date = inputDateFormatterWithMilliseconds.date(from: dateString) {
-            return outputDateFormatter.string(from: date)
-        }
-        return ""
-    }
+    
 }

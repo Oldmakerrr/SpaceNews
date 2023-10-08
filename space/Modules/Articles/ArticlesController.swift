@@ -114,6 +114,7 @@ extension ArticlesController: UICollectionViewDataSource {
 
         let article = viewModel.articel(for: indexPath)
         let viewModel = viewModel.articlesCellViewModel(article)
+        cell.delegate = self
         cell.configureUI(viewModel)
         return cell
     }
@@ -124,7 +125,16 @@ extension ArticlesController: UICollectionViewDataSource {
 extension ArticlesController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let article = viewModel.articel(for: indexPath)
-//        goToDetailNews(with: article)
+        viewModel.goToDetailNews(for: indexPath)
     }
+}
+
+// MARK: - ArticleCellDelegate
+
+extension ArticlesController: ArticleCellDelegate {
+    func didImageTap(_ cell: ArticleCell) {
+        guard let indexPath = collectionView.indexPath(for: cell) else { return }
+        viewModel.goToImageController(for: indexPath)
+    }
+
 }
