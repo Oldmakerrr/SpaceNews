@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E253310E2B1C700300A56DAD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E253310D2B1C700300A56DAD /* SnapKit */; };
+		E25331102B1C700600A56DAD /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = E253310F2B1C700600A56DAD /* SDWebImage */; };
 		E2D34B322AD31A3900C8EFD8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D34B312AD31A3900C8EFD8 /* Coordinator.swift */; };
 		E2D34B342AD31AC700C8EFD8 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D34B332AD31AC700C8EFD8 /* ScreenFactory.swift */; };
 		E2D34B362AD31B9800C8EFD8 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D34B352AD31B9800C8EFD8 /* Routable.swift */; };
@@ -24,8 +26,6 @@
 		F8E053AD2AA4902B0025E665 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8E053AB2AA4902B0025E665 /* LaunchScreen.storyboard */; };
 		F8E053B62AA49AB60025E665 /* ArticlesNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E053B52AA49AB60025E665 /* ArticlesNetworkService.swift */; };
 		F8E053B82AA49AD20025E665 /* ArticleDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E053B72AA49AD20025E665 /* ArticleDTO.swift */; };
-		F8E053BB2AA4A7460025E665 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8E053BA2AA4A7460025E665 /* SnapKit */; };
-		F8E053C02AA4A9DD0025E665 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F8E053BF2AA4A9DD0025E665 /* SDWebImage */; };
 		F8E053C62AA4B0D60025E665 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E053C52AA4B0D60025E665 /* ArticleCell.swift */; };
 		F8E053C92AA4D3790025E665 /* DetailArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E053C82AA4D3790025E665 /* DetailArticle.swift */; };
 		F8E053CC2AA4DDA20025E665 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E053CB2AA4DDA20025E665 /* WebViewController.swift */; };
@@ -61,14 +61,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8E053C02AA4A9DD0025E665 /* SDWebImage in Frameworks */,
-				F8E053BB2AA4A7460025E665 /* SnapKit in Frameworks */,
+				E25331102B1C700600A56DAD /* SDWebImage in Frameworks */,
+				E253310E2B1C700300A56DAD /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E253310C2B1C700300A56DAD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E2D34B3D2AD324F300C8EFD8 /* ImageController */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +90,7 @@
 			children = (
 				F8E0539F2AA4902A0025E665 /* space */,
 				F8E0539E2AA4902A0025E665 /* Products */,
+				E253310C2B1C700300A56DAD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -194,8 +202,8 @@
 			);
 			name = space;
 			packageProductDependencies = (
-				F8E053BA2AA4A7460025E665 /* SnapKit */,
-				F8E053BF2AA4A9DD0025E665 /* SDWebImage */,
+				E253310D2B1C700300A56DAD /* SnapKit */,
+				E253310F2B1C700600A56DAD /* SDWebImage */,
 			);
 			productName = space;
 			productReference = F8E0539D2AA4902A0025E665 /* space.app */;
@@ -503,12 +511,12 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F8E053BA2AA4A7460025E665 /* SnapKit */ = {
+		E253310D2B1C700300A56DAD /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F8E053B92AA4A7460025E665 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		F8E053BF2AA4A9DD0025E665 /* SDWebImage */ = {
+		E253310F2B1C700600A56DAD /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F8E053BE2AA4A9DD0025E665 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
